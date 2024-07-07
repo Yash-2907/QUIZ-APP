@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".QuestionPage">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/quiz_bg"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/questionpanel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="WHAT IS THE ANIMAL SHOWN"
+            android:textSize="30sp"
+            android:textAlignment="center"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textColor="@color/white">
+
+        </TextView>
+
+        <ImageView
+            android:id="@+id/imagepanel"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/ea3de7ebb7a997d1b5a4aa02cae85d13"
+            android:layout_margin="10dp"
+            >
+        </ImageView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="12dp">
+
+            <ProgressBar
+                android:id="@+id/progresspanel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_weight="1"
+                android:progress="0"
+                android:indeterminate="false">
+
+            </ProgressBar>
+
+            <TextView
+                android:id="@+id/pointpanel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0/3"
+                android:textSize="20dp"
+                android:textAlignment="viewEnd"
+                android:layout_margin="10dp">
+
+            </TextView>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:onClick="optionselect"
+                android:id="@+id/o1"
+                android:layout_marginTop="10dp"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="LION"
+                android:textSize="20dp"
+                android:background="@drawable/sqrbutton"
+                android:textColor="@color/black"
+                >
+
+            </androidx.appcompat.widget.AppCompatButton>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:onClick="optionselect"
+                android:id="@+id/o2"
+                android:layout_marginTop="10dp"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="GOAT"
+                android:textSize="20dp"
+                android:background="@drawable/sqrbutton"
+                android:textColor="@color/black"
+                >
+
+            </androidx.appcompat.widget.AppCompatButton>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:onClick="optionselect"
+                android:id="@+id/o3"
+                android:layout_marginTop="10dp"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="DUCK"
+                android:textSize="20dp"
+                android:background="@drawable/sqrbutton"
+                android:textColor="@color/black"
+                >
+
+            </androidx.appcompat.widget.AppCompatButton>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:onClick="optionselect"
+                android:id="@+id/o4"
+                android:layout_marginTop="10dp"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="COW"
+                android:textSize="20dp"
+                android:background="@drawable/sqrbutton"
+                android:textColor="@color/black"
+                >
+
+            </androidx.appcompat.widget.AppCompatButton>
+
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/submitbtn"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/submitbtn"
+            android:text="SUBMIT"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_margin="10dp">
+        </androidx.appcompat.widget.AppCompatButton>
+
+    </LinearLayout>
+
+
+</ScrollView>
