@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         }
         else{
             userName=Binding.namebox.text.toString()
-            Toast.makeText(this, "Hello $userName!!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Hello $userName!!", Toast.LENGTH_LONG).show()
             startActivity(Intent(this,QuestionPage::class.java))
             finish()
         }

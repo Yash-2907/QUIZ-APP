@@ -12,4 +12,5 @@
     <color name="correctgreen">#9BFB52</color>
     <color name="incorrectred">#FF4460</color>
     <color name="lightblue">#B5FFFD</color>
+    <color name="darkblue">#39C4FF</color>
 </resources>

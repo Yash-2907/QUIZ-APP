@@ -7,6 +7,7 @@ import android.os.Looper
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -21,6 +22,8 @@ class QuestionPage : AppCompatActivity() {
         setContentView(R.layout.activity_question_page)
         val questionlist = Constants.getQuestions()
         val totlen = questionlist.size
+        val pb:ProgressBar=findViewById(R.id.progresspanel)
+        pb.max=totlen-1
         var qnum=0;
         var currpos=0;
         default()
@@ -35,7 +38,8 @@ class QuestionPage : AppCompatActivity() {
             if(onSubmit(questionlist,totlen,qnum)) {
                 answerdisplay(questionlist[qnum].correctans)
                 Handler(Looper.getMainLooper()).postDelayed({
-                qnum++;
+                qnum++
+                    pb.progress=qnum
                 currpos++
                 ask(questionlist, currpos, qnum, totlen)
                 default()

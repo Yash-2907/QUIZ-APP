@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:fontFamily="casual"
+            android:fontFamily="sans-serif-thin"
             android:text="WHAT IS THE ANIMAL SHOWN"
             android:textAlignment="center"
             android:textColor="@color/white"
@@ -51,7 +51,9 @@
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_weight="1"
                 android:progress="0"
-                android:indeterminate="false">
+                android:indeterminate="false"
+                android:progressTint="@color/darkblue"
+                >
 
             </ProgressBar>
 
