@@ -6,6 +6,10 @@
     <color name="blue">#425DE2</color>
     <color name="brown">#82533C</color>
     <color name="lightorange">#F2B88C</color>
-    <color name="purple">#ECB194</color>
     <color name="lightgreen">#8DFF40</color>
+    <color name="orange">#FFB2A7</color>
+    <color name="purple">#DD3CF8</color>
+    <color name="correctgreen">#9BFB52</color>
+    <color name="incorrectred">#FF4460</color>
+    <color name="lightblue">#B5FFFD</color>
 </resources>
