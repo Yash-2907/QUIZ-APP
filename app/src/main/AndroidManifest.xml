@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Quizzz_App"
         tools:targetApi="31">
         <activity
+            android:name=".ResultPage"
+            android:exported="false" />
+        <activity
             android:name=".QuestionPage"
             android:exported="false" />
         <activity

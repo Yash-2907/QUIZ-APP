@@ -41,9 +41,9 @@
             </ImageView>
         <ImageView
             android:id="@+id/anssymbol"
-            android:layout_width="wrap_content"
-            android:layout_height="200dp"
-            android:src="@drawable/tick"
+            android:layout_width="match_parent"
+            android:layout_height="165dp"
+            android:src="@drawable/cross"
             android:visibility="gone"/>
         </FrameLayout>
 

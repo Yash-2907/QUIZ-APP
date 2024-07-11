@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
@@ -18,9 +19,15 @@ import androidx.core.view.isVisible
 class QuestionPage : AppCompatActivity() {
     var option: Int=-1
     var score=0;
+    lateinit var usernamegot : String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_question_page)
+        getWindow().setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        val it : Intent=intent
+        usernamegot=it.getStringExtra("Username").toString()
         val questionlist = Constants.getQuestions()
         val totlen = questionlist.size
         val pb:ProgressBar=findViewById(R.id.progresspanel)
@@ -37,6 +44,10 @@ class QuestionPage : AppCompatActivity() {
         findViewById<TextView>(R.id.o4).text=questionlist[0].option4
         findViewById<Button>(R.id.submitbtn).setOnClickListener {
             findViewById<Button>(R.id.submitbtn).isEnabled=false
+            findViewById<TextView>(R.id.o1).isEnabled=false
+            findViewById<TextView>(R.id.o2).isEnabled=false
+            findViewById<TextView>(R.id.o3).isEnabled=false
+            findViewById<TextView>(R.id.o4).isEnabled=false
             if(onSubmit(questionlist,totlen,qnum)) {
                 answerdisplay(questionlist[qnum].correctans)
                 Handler(Looper.getMainLooper()).postDelayed({
@@ -47,7 +58,11 @@ class QuestionPage : AppCompatActivity() {
                     findViewById<ImageView>(R.id.anssymbol).visibility=View.GONE
                 default()
                     findViewById<Button>(R.id.submitbtn).isEnabled=true
-                option=-1 },2000)
+                    findViewById<TextView>(R.id.o1).isEnabled=true
+                    findViewById<TextView>(R.id.o2).isEnabled=true
+                    findViewById<TextView>(R.id.o3).isEnabled=true
+                    findViewById<TextView>(R.id.o4).isEnabled=true
+                option=-1 },1500)
             }
         }
     }
@@ -98,11 +113,13 @@ class QuestionPage : AppCompatActivity() {
             else{
                 answerSymbol(false)
             }
-            Toast.makeText(this, "THANKS FOR PLAYING YOUR SCORE :- $score", Toast.LENGTH_LONG)
-                .show()
             answerdisplay(questionlist[qnum].correctans)
             Handler(Looper.getMainLooper()).postDelayed({
-                startActivity(Intent(this,MainActivity::class.java))
+                val inte :Intent=Intent(this,ResultPage::class.java)
+                inte.putExtra("Username",usernamegot)
+                inte.putExtra("Score",score)
+                inte.putExtra("total",totlen)
+                startActivity(inte)
                 finish() },1000)
             return false;
         }
