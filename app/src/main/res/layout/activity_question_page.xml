@@ -27,15 +27,25 @@
             android:textStyle="bold">
 
         </TextView>
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/imagepanel"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/ea3de7ebb7a997d1b5a4aa02cae85d13"
+                android:layout_margin="10dp"
+                >
 
+            </ImageView>
         <ImageView
-            android:id="@+id/imagepanel"
-            android:layout_width="match_parent"
+            android:id="@+id/anssymbol"
+            android:layout_width="wrap_content"
             android:layout_height="200dp"
-            android:src="@drawable/ea3de7ebb7a997d1b5a4aa02cae85d13"
-            android:layout_margin="10dp"
-            >
-        </ImageView>
+            android:src="@drawable/tick"
+            android:visibility="gone"/>
+        </FrameLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

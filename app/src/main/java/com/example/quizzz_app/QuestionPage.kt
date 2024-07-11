@@ -12,6 +12,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 
 
 class QuestionPage : AppCompatActivity() {
@@ -35,6 +36,7 @@ class QuestionPage : AppCompatActivity() {
         findViewById<TextView>(R.id.o3).text=questionlist[0].option3
         findViewById<TextView>(R.id.o4).text=questionlist[0].option4
         findViewById<Button>(R.id.submitbtn).setOnClickListener {
+            findViewById<Button>(R.id.submitbtn).isEnabled=false
             if(onSubmit(questionlist,totlen,qnum)) {
                 answerdisplay(questionlist[qnum].correctans)
                 Handler(Looper.getMainLooper()).postDelayed({
@@ -42,8 +44,10 @@ class QuestionPage : AppCompatActivity() {
                     pb.progress=qnum
                 currpos++
                 ask(questionlist, currpos, qnum, totlen)
+                    findViewById<ImageView>(R.id.anssymbol).visibility=View.GONE
                 default()
-                option=-1},2000)
+                    findViewById<Button>(R.id.submitbtn).isEnabled=true
+                option=-1 },2000)
             }
         }
     }
@@ -88,11 +92,11 @@ class QuestionPage : AppCompatActivity() {
         if((totlen-1)==qnum) {
             if(questionlist[qnum].correctans==option)
             {
-                Toast.makeText(this, "YAY!! CORRECT ANS", Toast.LENGTH_SHORT).show()
+                answerSymbol(true)
                 score++
             }
             else{
-                Toast.makeText(this, "WOOPS!! WRONG ANS", Toast.LENGTH_SHORT).show()
+                answerSymbol(false)
             }
             Toast.makeText(this, "THANKS FOR PLAYING YOUR SCORE :- $score", Toast.LENGTH_LONG)
                 .show()
@@ -109,14 +113,27 @@ class QuestionPage : AppCompatActivity() {
         else{
             if(questionlist[qnum].correctans==option)
             {
-                Toast.makeText(this, "YAY!! CORRECT ANS", Toast.LENGTH_SHORT).show()
+                answerSymbol(true)
                 score++
             }
             else{
-                Toast.makeText(this, "WOOPS!! WRONG ANS", Toast.LENGTH_SHORT).show()
+                answerSymbol(false)
             }
             return true;
         }
+    }
+
+    fun answerSymbol(ans: Boolean)
+    {
+        val img= findViewById<ImageView>(R.id.anssymbol)
+        if(ans)
+        {
+            img.setImageResource(R.drawable.tick)
+        }
+        else{
+            img.setImageResource(R.drawable.cross)
+        }
+        img.visibility=View.VISIBLE
     }
 
     fun optionselect(view:View)
