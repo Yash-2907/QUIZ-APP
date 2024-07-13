@@ -64,6 +64,13 @@ class QuestionPage : AppCompatActivity() {
                     findViewById<TextView>(R.id.o4).isEnabled=true
                 option=-1 },1500)
             }
+            else{
+                findViewById<Button>(R.id.submitbtn).isEnabled=true
+                findViewById<TextView>(R.id.o1).isEnabled=true
+                findViewById<TextView>(R.id.o2).isEnabled=true
+                findViewById<TextView>(R.id.o3).isEnabled=true
+                findViewById<TextView>(R.id.o4).isEnabled=true
+            }
         }
     }
 
